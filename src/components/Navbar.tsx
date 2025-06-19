@@ -76,7 +76,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="block md:hidden p-2 bg-transparent border-none cursor-pointer"
+            className="block md:hidden p-3 bg-transparent border-none cursor-pointer mr-2"
             whileTap={{ scale: 0.95 }}
             style={{
               background: 'transparent',
@@ -86,9 +86,9 @@ const Navbar = () => {
             aria-label="Open mobile menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className="w-5 h-0.5 bg-primary mb-1 block"></span>
-              <span className="w-5 h-0.5 bg-primary mb-1 block"></span>
-              <span className="w-5 h-0.5 bg-primary block"></span>
+              <span className="w-6 h-0.5 bg-primary mb-1 block rounded-full"></span>
+              <span className="w-6 h-0.5 bg-primary mb-1 block rounded-full"></span>
+              <span className="w-6 h-0.5 bg-primary block rounded-full"></span>
             </div>
           </motion.button>
         </div>
@@ -104,30 +104,50 @@ const Navbar = () => {
           onClick={() => setMobileMenuOpen(false)}
         >
           <motion.div
-            className="w-3/4 max-w-xs h-full bg-white dark:bg-gray-900 shadow-lg p-8 flex flex-col gap-6"
+            className="w-4/5 max-w-sm h-full glass shadow-lg p-6 flex flex-col"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             onClick={e => e.stopPropagation()}
           >
-            <button
-              className="self-end mb-8 text-2xl text-gray-700 dark:text-gray-200"
-              onClick={() => setMobileMenuOpen(false)}
-              aria-label="Close mobile menu"
-            >
-              &times;
-            </button>
-            {navItems.map((item) => (
+            {/* Close Button */}
+            <div className="flex justify-between items-center mb-8">
+              <span className="text-lg font-bold text-primary">Menu</span>
               <button
-                key={item.id}
-                className="text-lg text-text-secondary hover:text-primary transition-colors duration-300 font-medium text-left"
-                onClick={() => scrollToSection(item.id)}
-                style={{ background: 'transparent', border: 'none', padding: '1rem 0' }}
+                className="p-2 text-text-secondary hover:text-primary transition-colors bg-transparent border-none cursor-pointer"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close mobile menu"
+                style={{ background: 'transparent', border: 'none' }}
               >
-                {item.label}
+                <span className="text-2xl">&times;</span>
               </button>
-            ))}
+            </div>
+
+            {/* Navigation Items */}
+            <div className="flex flex-col space-y-1">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.id}
+                  className="text-left py-4 px-4 text-lg text-text-secondary hover:text-primary hover:bg-surface-light transition-all duration-300 font-medium rounded-lg"
+                  onClick={() => scrollToSection(item.id)}
+                  style={{ background: 'transparent', border: 'none' }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="mt-auto pt-6 border-t border-surface-light">
+              <p className="text-text-muted text-sm text-center">
+                &copy; 2024 Mateen Qazi
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       )}
