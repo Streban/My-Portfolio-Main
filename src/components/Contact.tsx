@@ -1,16 +1,49 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Linkedin,
+  Twitter,
+  Send,
+} from 'lucide-react';
 
 const Contact = () => {
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/mateen-qazi/', color: 'hover:text-blue-500' },
-    { name: 'GitHub', icon: Github, url: 'https://github.com/mateenqazi', color: 'hover:text-gray-400' },
-    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/mateenqazi', color: 'hover:text-blue-400' },
+    {
+      name: 'LinkedIn',
+      icon: Linkedin,
+      url: 'https://www.linkedin.com/in/mateen-qazi/',
+      color: 'hover:text-blue-500',
+    },
+    {
+      name: 'GitHub',
+      icon: Github,
+      url: 'https://github.com/mateenqazi',
+      color: 'hover:text-gray-400',
+    },
+    {
+      name: 'Twitter',
+      icon: Twitter,
+      url: 'https://twitter.com/mateenqazi',
+      color: 'hover:text-blue-400',
+    },
   ];
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'mateenqazi8@gmail.com', url: 'mailto:mateenqazi8@gmail.com' },
-    { icon: Phone, label: 'Phone', value: '+92 308 4806445', url: 'tel:+923084806445' },
+    {
+      icon: Mail,
+      label: 'Email',
+      value: 'mateenqazi8@gmail.com',
+      url: 'mailto:mateenqazi8@gmail.com',
+    },
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: '+92 308 4806445',
+      url: 'tel:+923084806445',
+    },
     { icon: MapPin, label: 'Location', value: 'Lahore, Pakistan', url: '#' },
   ];
 
@@ -34,42 +67,66 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <h3 className="mb-6">Send a Message</h3>
-              <form className="space-y-6">
+              <form className="space-y-6" action="https://formsubmit.co/mateenqazi8@gmail.com" method="POST">
                 <div className="grid grid-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-text-secondary mb-2">Name</label>
+                    <label
+                      htmlFor="name"
+                      className="block text-text-secondary mb-2"
+                    >
+                      Name
+                    </label>
                     <input
                       type="text"
                       id="name"
-                      className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                      name="name"
+                      className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 text-text-primary"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-text-secondary mb-2">Email</label>
+                    <label
+                      htmlFor="email"
+                      className="block text-text-secondary mb-2"
+                    >
+                      Email
+                    </label>
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                      name="email"
+                      className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 text-text-primary"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-text-secondary mb-2">Subject</label>
+                  <label
+                    htmlFor="subject"
+                    className="block text-text-secondary mb-2"
+                  >
+                    Subject
+                  </label>
                   <input
                     type="text"
                     id="subject"
-                    className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300"
+                    name="subject"
+                    className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 text-text-primary"
                     placeholder="What's this about?"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-text-secondary mb-2">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-text-secondary mb-2"
+                  >
+                    Message
+                  </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={6}
-                    className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-surface-light border border-surface rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 resize-none text-text-primary"
                     placeholder="Your message..."
                   ></textarea>
                 </div>
@@ -93,7 +150,7 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <h3 className="mb-6">Contact Information</h3>
-              
+
               {/* Contact Details */}
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => (
@@ -111,8 +168,12 @@ const Contact = () => {
                       <info.icon size={20} className="text-primary" />
                     </div>
                     <div>
-                      <div className="text-text-secondary text-sm">{info.label}</div>
-                      <div className="text-text-primary font-medium">{info.value}</div>
+                      <div className="text-text-secondary text-sm">
+                        {info.label}
+                      </div>
+                      <div className="text-text-primary font-medium">
+                        {info.value}
+                      </div>
                     </div>
                   </motion.a>
                 ))}
@@ -136,7 +197,10 @@ const Contact = () => {
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <social.icon size={24} className={`text-text-secondary ${social.color} transition-colors duration-300`} />
+                      <social.icon
+                        size={24}
+                        className={`text-text-secondary ${social.color} transition-colors duration-300`}
+                      />
                     </motion.a>
                   ))}
                 </div>
@@ -149,4 +213,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

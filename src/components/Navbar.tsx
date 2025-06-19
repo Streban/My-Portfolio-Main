@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,7 @@ const Navbar = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false); // Close mobile menu on nav click
     }
   };
 
@@ -80,15 +82,55 @@ const Navbar = () => {
               background: 'transparent',
               border: 'none',
             }}
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open mobile menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className="w-5 h-0-5 bg-primary mb-1"></span>
-              <span className="w-5 h-0-5 bg-primary mb-1"></span>
-              <span className="w-5 h-0-5 bg-primary"></span>
+              <span className="w-5 h-0.5 bg-primary mb-1"></span>
+              <span className="w-5 h-0.5 bg-primary mb-1"></span>
+              <span className="w-5 h-0.5 bg-primary"></span>
             </div>
           </motion.button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <motion.div
+          className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-end md:hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <motion.div
+            className="w-3/4 max-w-xs h-full bg-white dark:bg-gray-900 shadow-lg p-8 flex flex-col gap-6"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              className="self-end mb-8 text-2xl text-gray-700 dark:text-gray-200"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close mobile menu"
+            >
+              &times;
+            </button>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                className="text-lg text-text-secondary hover:text-primary transition-colors duration-300 font-medium text-left"
+                onClick={() => scrollToSection(item.id)}
+                style={{ background: 'transparent', border: 'none', padding: '1rem 0' }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </motion.div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };
