@@ -76,7 +76,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 bg-transparent border-none"
+            className="block md:hidden p-2 bg-transparent border-none cursor-pointer"
             whileTap={{ scale: 0.95 }}
             style={{
               background: 'transparent',
@@ -86,9 +86,9 @@ const Navbar = () => {
             aria-label="Open mobile menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className="w-5 h-0.5 bg-primary mb-1"></span>
-              <span className="w-5 h-0.5 bg-primary mb-1"></span>
-              <span className="w-5 h-0.5 bg-primary"></span>
+              <span className="w-5 h-0.5 bg-primary mb-1 block"></span>
+              <span className="w-5 h-0.5 bg-primary mb-1 block"></span>
+              <span className="w-5 h-0.5 bg-primary block"></span>
             </div>
           </motion.button>
         </div>
