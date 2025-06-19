@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { useState } from 'react';
 
 const Projects = () => {
+  const [hoveredGithub, setHoveredGithub] = useState<number | null>(null);
+
   const projects = [
     {
       id: 1,
       title: 'Health Care Management App',
       description: 'A comprehensive healthcare platform enabling patients to book appointments, access medical records, and communicate securely with doctors. Features role-based authentication, secure data storage, and real-time notifications.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop',
       technologies: ['React', 'Node.js', 'MongoDB', 'Nest.js', 'Real-time Notifications'],
-      liveUrl: '#',
+      liveUrl: 'https://play.google.com/store/apps/details?id=com.devcodingcops.novavitacare&hl=en',
       githubUrl: '#',
     },
     {
@@ -18,7 +21,7 @@ const Projects = () => {
       description: 'A modern, responsive portfolio website built with React and TypeScript, featuring smooth animations, dark/light theme toggle, and optimized performance. Showcases my projects, skills, and professional experience with an elegant design and seamless user experience.',
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
-      liveUrl: '#',
+      liveUrl: 'https://portfolio-mateen-qazis-projects.vercel.app/',
       githubUrl: '#',
     },
     {
@@ -36,14 +39,14 @@ const Projects = () => {
       description: 'Led development of a comprehensive training system for 5 diverse clients, optimizing API response times by 30% and reducing page load times by 25% through advanced caching and lazy loading techniques.',
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop',
       technologies: ['React.js', 'Node.js', 'PostgreSQL', 'CI/CD', 'Performance Optimization'],
-      liveUrl: '#',
+      liveUrl: 'https://ets.gosaas.io/',
       githubUrl: '#',
     },
     {
       id: 4,
       title: 'AR-Based Navigation App',
       description: 'Final Year Project - An Augmented Reality navigation app for GIKI campus using Unity ARCore. Overlays real-time AR markers on hand-drawn campus maps, providing interactive guidance for new students and parents.',
-      image: 'https://images.unsplash.com/photo-1622979143011-da4c6c44b5ba?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=500&h=300&fit=crop',
       technologies: ['Unity', 'ARCore', 'C#', 'Augmented Reality', 'Mobile Development'],
       liveUrl: '#',
       githubUrl: '#',
@@ -65,7 +68,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="card group"
+                className="card group overflow-visible"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -109,14 +112,38 @@ const Projects = () => {
                       <ExternalLink size={18} />
                       Live Demo
                     </motion.a>
-                    <motion.a
-                      href={project.githubUrl}
-                      className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors duration-300"
-                      whileHover={{ x: 5 }}
-                    >
-                      <Github size={18} />
-                      Source Code
-                    </motion.a>
+                    <div className="relative">
+                      <motion.a
+                        href={project.githubUrl}
+                        className="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer"
+                        whileHover={{ x: 5 }}
+                        onMouseEnter={() => setHoveredGithub(project.id)}
+                        onMouseLeave={() => setHoveredGithub(null)}
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <Github size={18} />
+                        Source Code
+                      </motion.a>
+                      
+                      {/* Tooltip */}
+                      {hoveredGithub === project.id && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10, scale: 0.9 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                          className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-50"
+                          style={{ zIndex: 9999 }}
+                        >
+                          <div className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-xl whitespace-nowrap">
+                            Sorry, private repo
+                            {/* Tooltip arrow */}
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2">
+                              <div className="border-4 border-transparent border-t-gray-900"></div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </div>
                   </div>
                 </div>
 

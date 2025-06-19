@@ -8,12 +8,12 @@ const Skills = () => {
   console.log('isInView:', isInView);
 
   const skills = [
-    { name: 'React', level: 95, color: '#61DAFB' },
-    { name: 'Node.js', level: 90, color: '#339933' },
-    { name: 'JavaScript', level: 95, color: '#F7DF1E' },
-    { name: 'MongoDB', level: 85, color: '#47A248' },
-    { name: 'PostgreSQL', level: 80, color: '#336791' },
-    { name: 'AWS', level: 75, color: '#FF9900' },
+    { name: 'React', level: 95, color: '#22d3ee' },
+    { name: 'Node.js', level: 90, color: '#34d399' },
+    { name: 'JavaScript', level: 95, color: '#fbbf24' },
+    { name: 'MongoDB', level: 85, color: '#a78bfa' },
+    { name: 'PostgreSQL', level: 80, color: '#fb7185' },
+    { name: 'AWS', level: 75, color: '#64748b' },
   ];
 
   const technologies = [
