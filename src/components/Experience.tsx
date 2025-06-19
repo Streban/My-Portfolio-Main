@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Building } from 'lucide-react';
+import CV from '../assets/MateenQazi_CV.pdf';
 
 const Experience = () => {
   const experiences = [
@@ -69,7 +70,7 @@ const Experience = () => {
                     <div className="space-y-4">
                       {/* Header */}
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                        <div>
+                        <div className="flex-1 flex-grow" style={{ flexGrow: 1 }}>
                           <h3 className="text-xl font-bold text-text-primary">{experience.title}</h3>
                           <div className="flex items-center gap-4 text-text-secondary mt-1">
                             <div className="flex items-center gap-1">
@@ -118,7 +119,8 @@ const Experience = () => {
             viewport={{ once: true }}
           >
             <motion.a
-              href="/resume.pdf"
+              href={CV}
+              download="MateenQazi_CV.pdf"
               className="btn btn-primary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

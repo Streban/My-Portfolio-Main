@@ -5,6 +5,7 @@ import { useRef } from 'react';
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  console.log('isInView:', isInView);
 
   const skills = [
     { name: 'React', level: 95, color: '#61DAFB' },
@@ -54,10 +55,10 @@ const Skills = () => {
                       <span className="font-medium text-text-primary">{skill.name}</span>
                       <span className="text-text-secondary">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-surface-light rounded-full h-3 overflow-hidden">
+                    <div className="w-full bg-gray-300 rounded-full h-3 min-h-[12px] border border-gray-400 overflow-hidden">
                       <motion.div
                         className="h-full rounded-full"
-                        style={{ backgroundColor: skill.color }}
+                        style={{ backgroundColor: skill.color, minHeight: '12px' }}
                         initial={{ width: 0 }}
                         animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
                         transition={{ duration: 1, delay: index * 0.1 + 0.5 }}

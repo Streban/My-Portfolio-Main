@@ -38,7 +38,7 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="container">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between pt-4">
           {/* Logo */}
           <motion.div
             className="text-2xl font-bold"
@@ -55,12 +55,17 @@ const Navbar = () => {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
-                className="text-text-secondary hover:text-primary transition-colors duration-300 font-medium"
+                className="text-text-secondary hover:text-primary transition-colors duration-300 font-medium bg-transparent border-none cursor-pointer"
                 onClick={() => scrollToSection(item.id)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -2 }}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  padding: '0.5rem 0',
+                }}
               >
                 {item.label}
               </motion.button>
@@ -69,13 +74,17 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2"
+            className="md:hidden p-2 bg-transparent border-none"
             whileTap={{ scale: 0.95 }}
+            style={{
+              background: 'transparent',
+              border: 'none',
+            }}
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span className="w-5 h-0.5 bg-primary mb-1"></span>
-              <span className="w-5 h-0.5 bg-primary mb-1"></span>
-              <span className="w-5 h-0.5 bg-primary"></span>
+              <span className="w-5 h-0-5 bg-primary mb-1"></span>
+              <span className="w-5 h-0-5 bg-primary mb-1"></span>
+              <span className="w-5 h-0-5 bg-primary"></span>
             </div>
           </motion.button>
         </div>

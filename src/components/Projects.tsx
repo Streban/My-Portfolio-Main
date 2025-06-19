@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -9,6 +9,15 @@ const Projects = () => {
       description: 'A comprehensive healthcare platform enabling patients to book appointments, access medical records, and communicate securely with doctors. Features role-based authentication, secure data storage, and real-time notifications.',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop',
       technologies: ['React', 'Node.js', 'MongoDB', 'Nest.js', 'Real-time Notifications'],
+      liveUrl: '#',
+      githubUrl: '#',
+    },
+    {
+      id: 0,
+      title: 'Personal Portfolio Website',
+      description: 'A modern, responsive portfolio website built with React and TypeScript, featuring smooth animations, dark/light theme toggle, and optimized performance. Showcases my projects, skills, and professional experience with an elegant design and seamless user experience.',
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
       liveUrl: '#',
       githubUrl: '#',
     },
@@ -112,12 +121,7 @@ const Projects = () => {
                 </div>
 
                 {/* Hover Arrow */}
-                <motion.div
-                  className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <ArrowUpRight size={24} className="text-primary" />
-                </motion.div>
+             
               </motion.div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Download, Mail } from 'lucide-react';
+import CV from '../assets/MateenQazi_CV.pdf';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -71,7 +72,8 @@ const Hero = () => {
             </motion.a>
             
             <motion.a
-              href="/resume.pdf"
+              href={CV}
+              download="MateenQazi_CV.pdf"
               className="btn btn-secondary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -84,18 +86,30 @@ const Hero = () => {
           {/* Scroll Indicator */}
           <motion.button
             onClick={scrollToAbout}
-            className="flex flex-col items-center gap-2 text-text-secondary hover:text-primary transition-colors duration-300"
+            className="flex flex-col items-center gap-3 text-text-secondary hover:text-primary transition-all duration-500 group mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            whileHover={{ y: 5 }}
+            whileHover={{ y: -5, scale: 1.05 }}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+            }}
           >
-            <span className="text-sm">Scroll to explore</span>
+            <span className="text-sm font-medium tracking-wide opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+              Scroll to explore
+            </span>
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              className="relative"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <ArrowDown size={24} />
+              <div className="p-2 rounded-full border border-text-secondary/30 group-hover:border-primary/50 transition-colors duration-300">
+                <ArrowDown size={20} className="group-hover:text-primary transition-colors duration-300" />
+              </div>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
             </motion.div>
           </motion.button>
         </div>
