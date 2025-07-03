@@ -6,11 +6,14 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import './App.css';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
     <div className="app">
       <Navbar />
+      <Analytics />
+
       <main>
         <Hero />
         <About />
