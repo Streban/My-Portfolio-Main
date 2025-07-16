@@ -8,6 +8,15 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: 'OnyxFlow - Productivity Platform',
+      description: 'A comprehensive productivity platform for high-net-worth individuals to manage multiple businesses, personal commitments, and philanthropic endeavors. Features AI-powered task management, calendar integration, email-to-task conversion, and intelligent productivity insights.',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
+      technologies: ['React', 'AI/ML', 'Task Management', 'Calendar Integration', 'Email Automation'],
+      liveUrl: 'https://stage.onyxflowai.com/',
+      githubUrl: '#',
+    },
+    {
+      id: 2,
       title: 'Health Care Management App',
       description: 'A comprehensive healthcare platform enabling patients to book appointments, access medical records, and communicate securely with doctors. Features role-based authentication, secure data storage, and real-time notifications.',
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop',
@@ -16,25 +25,7 @@ const Projects = () => {
       githubUrl: '#',
     },
     {
-      id: 0,
-      title: 'Personal Portfolio Website',
-      description: 'A modern, responsive portfolio website built with React and TypeScript, featuring smooth animations, dark/light theme toggle, and optimized performance. Showcases my projects, skills, and professional experience with an elegant design and seamless user experience.',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
-      liveUrl: 'https://portfolio-mateen-qazis-projects.vercel.app/',
-      githubUrl: '#',
-    },
-    {
-      id: 2,
-      title: 'Personalized Fitness App',
-      description: 'AI-powered fitness application that generates personalized workout plans based on user preferences, health data, and available equipment. Integrated React Native for mobile support and MongoDB for scalable storage.',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop',
-      technologies: ['React Native', 'Nest.js', 'MongoDB', 'AI/ML', 'Mobile App'],
-      liveUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 3,
+      id: 5,
       title: 'Employee Training System (ETS)',
       description: 'Led development of a comprehensive training system for 5 diverse clients, optimizing API response times by 30% and reducing page load times by 25% through advanced caching and lazy loading techniques.',
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop',
@@ -44,6 +35,24 @@ const Projects = () => {
     },
     {
       id: 4,
+      title: 'Personalized Fitness App',
+      description: 'AI-powered fitness application that generates personalized workout plans based on user preferences, health data, and available equipment. Integrated React Native for mobile support and MongoDB for scalable storage.',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop',
+      technologies: ['React Native', 'Nest.js', 'MongoDB', 'AI/ML', 'Mobile App'],
+      liveUrl: '#',
+      githubUrl: '#',
+    },
+    {
+      id: 3,
+      title: 'Personal Portfolio Website',
+      description: 'A modern, responsive portfolio website built with React and TypeScript, featuring smooth animations, dark/light theme toggle, and optimized performance. Showcases my projects, skills, and professional experience with an elegant design and seamless user experience.',
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      liveUrl: 'https://portfolio-mateen-qazis-projects.vercel.app/',
+      githubUrl: '#',
+    },
+    {
+      id: 6,
       title: 'AR-Based Navigation App',
       description: 'Final Year Project - An Augmented Reality navigation app for GIKI campus using Unity ARCore. Overlays real-time AR markers on hand-drawn campus maps, providing interactive guidance for new students and parents.',
       image: 'https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=500&h=300&fit=crop',
@@ -106,6 +115,8 @@ const Projects = () => {
                   <div className="flex gap-4 pt-4">
                     <motion.a
                       href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors duration-300"
                       whileHover={{ x: 5 }}
                     >
@@ -163,6 +174,8 @@ const Projects = () => {
           >
             <motion.a
               href="#"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-secondary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
